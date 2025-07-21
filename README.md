@@ -34,11 +34,11 @@ Node.js (opcional, para compilar assets)
 composer install
 
 2. Configure o Ambiente
-bash# Copie o arquivo de configuração
-cp .env.example .env
+Copie o arquivo de configuração
+    cp .env.example .env
 
 Gere a chave da aplicação
-php artisan key:generate
+    php artisan key:generate
 
 
 crie o arquivo .env usando como exemplo o arquivo .env.example
