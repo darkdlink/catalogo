@@ -4,7 +4,7 @@ Sistema de catálogo de produtos desenvolvido em Laravel com filtros dinâmicos 
 
 📋 Sobre o Projeto
 
-Este projeto foi desenvolvido como parte de um teste técnico para vaga de estágio em desenvolvimento Full Stack. O sistema permite o cadastro, listagem e filtragem de produtos com uma interface moderna e responsiva.
+O sistema permite o cadastro, listagem e filtragem de produtos com uma interface moderna e responsiva.
 
 ✨ Funcionalidades Principais
 
