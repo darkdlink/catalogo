@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="row">
-    <!-- Seção de Filtros -->
     <div class="col-md-4 col-lg-3 mb-4">
         <div class="card shadow-sm">
             <div class="card-header bg-light">
@@ -42,7 +41,6 @@
                 
                 <hr>
                 
-                <!-- Botão para abrir modal de cadastro -->
                 <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#cadastroModal">
                     <i class="fas fa-plus me-2"></i>Novo Produto
                 </button>
@@ -50,7 +48,6 @@
         </div>
     </div>
     
-    <!-- Seção de Produtos -->
     <div class="col-md-8 col-lg-9">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Produtos</h2>
@@ -83,7 +80,6 @@
     </div>
 </div>
 
-<!-- Modal de Cadastro -->
 <div class="modal fade" id="cadastroModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">

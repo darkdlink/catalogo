@@ -1,12 +1,10 @@
 $(document).ready(function() {
-    // Configurar token CSRF para requisições AJAX
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
-    // Validação do campo nome - apenas validar se tem 3+ caracteres
     $('#nome').on('input', function() {
         const nome = $(this).val();
         const filtrarBtn = $('#filtrar-btn');
@@ -16,17 +14,14 @@ $(document).ready(function() {
             filtrarBtn.prop('disabled', false);
             filtrarBtn.removeClass('disabled');
         } else if (nome.length > 0 && nome.length < 3) {
-            // Desabilitar botão se tem menos de 3 chars (mas não está vazio)
             filtrarBtn.prop('disabled', true);
             filtrarBtn.addClass('disabled');
         }
     });
 
-    // BOTÃO FILTRAR - ÚNICA FORMA DE DISPARAR A BUSCA
     $('#filtrar-btn').on('click', function() {
         const nome = $('#nome').val();
         
-        // Validar se nome tem pelo menos 3 caracteres (quando preenchido)
         if (nome.length > 0 && nome.length < 3) {
             mostrarAlerta('Digite pelo menos 3 caracteres para buscar por nome.', 'warning');
             return;
@@ -35,7 +30,6 @@ $(document).ready(function() {
         filtrarProdutos();
     });
 
-    // Botão limpar filtros
     $('#limpar-btn').on('click', function() {
         $('#filtro-form')[0].reset();
         $('#filtrar-btn').prop('disabled', false).removeClass('disabled');
@@ -46,10 +40,8 @@ $(document).ready(function() {
         const nome = $('#nome').val();
         const categoriaId = $('#categoria_id').val();
 
-        // Mostrar loading
         mostrarLoading(true);
 
-        // Fazer requisição AJAX
         $.ajax({
             url: '/api/produtos',
             type: 'GET',
@@ -66,7 +58,6 @@ $(document).ready(function() {
                 mostrarAlerta('Erro ao carregar produtos. Tente novamente.', 'danger');
             },
             complete: function() {
-                // Esconder loading
                 mostrarLoading(false);
             }
         });
@@ -147,13 +138,11 @@ $(document).ready(function() {
         
         $('main .container').prepend(alerta);
         
-        // Auto-remover após 5 segundos
         setTimeout(function() {
             $('.alert').fadeOut();
         }, 5000);
     }
 
-    // Validação do formulário de cadastro
     $('#cadastroModal form').on('submit', function(e) {
         const nome = $('#modal-nome').val().trim();
         const descricao = $('#modal-descricao').val().trim();
@@ -173,12 +162,10 @@ $(document).ready(function() {
         }
     });
 
-    // Limpar formulário quando modal for fechado
     $('#cadastroModal').on('hidden.bs.modal', function() {
         $(this).find('form')[0].reset();
     });
 
-    // Animação suave para cards
     $(window).on('scroll', function() {
         $('.produto-card').each(function() {
             const elementTop = $(this).offset().top;
