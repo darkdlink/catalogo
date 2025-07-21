@@ -6,38 +6,39 @@ $(document).ready(function() {
         }
     });
 
-    // Variável para controlar o timer do filtro de nome
-    let searchTimer;
-
-    // Filtro por nome - buscar após 3 caracteres
+    // Validação do campo nome - apenas validar se tem 3+ caracteres
     $('#nome').on('input', function() {
         const nome = $(this).val();
+        const filtrarBtn = $('#filtrar-btn');
         
-        clearTimeout(searchTimer);
-        
-        if (nome.length >= 3) {
-            searchTimer = setTimeout(function() {
-                filtrarProdutos();
-            }, 500); // Aguarda 500ms após parar de digitar
-        } else if (nome.length === 0) {
-            // Se o campo estiver vazio, limpar filtros
-            filtrarProdutos();
+        if (nome.length >= 3 || nome.length === 0) {
+            // Habilitar botão se tem 3+ chars ou está vazio
+            filtrarBtn.prop('disabled', false);
+            filtrarBtn.removeClass('disabled');
+        } else if (nome.length > 0 && nome.length < 3) {
+            // Desabilitar botão se tem menos de 3 chars (mas não está vazio)
+            filtrarBtn.prop('disabled', true);
+            filtrarBtn.addClass('disabled');
         }
     });
 
-    // Filtro por categoria
-    $('#categoria_id').on('change', function() {
-        filtrarProdutos();
-    });
-
-    // Botão filtrar
+    // BOTÃO FILTRAR - ÚNICA FORMA DE DISPARAR A BUSCA
     $('#filtrar-btn').on('click', function() {
+        const nome = $('#nome').val();
+        
+        // Validar se nome tem pelo menos 3 caracteres (quando preenchido)
+        if (nome.length > 0 && nome.length < 3) {
+            mostrarAlerta('Digite pelo menos 3 caracteres para buscar por nome.', 'warning');
+            return;
+        }
+        
         filtrarProdutos();
     });
 
     // Botão limpar filtros
     $('#limpar-btn').on('click', function() {
         $('#filtro-form')[0].reset();
+        $('#filtrar-btn').prop('disabled', false).removeClass('disabled');
         filtrarProdutos();
     });
 
