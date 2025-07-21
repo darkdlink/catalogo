@@ -34,6 +34,7 @@ Node.js (opcional, para compilar assets)
 composer install
 
 2. Configure o Ambiente
+
 Copie o arquivo de configuração
     cp .env.example .env
 
