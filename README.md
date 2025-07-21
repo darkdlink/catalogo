@@ -37,7 +37,7 @@ composer install
 bash# Copie o arquivo de configuração
 cp .env.example .env
 
-# Gere a chave da aplicação
+Gere a chave da aplicação
 php artisan key:generate
 
 
