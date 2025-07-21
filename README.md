@@ -1,14 +1,23 @@
 🛒 Catálogo de Produtos - Laravel
+
 Sistema de catálogo de produtos desenvolvido em Laravel com filtros dinâmicos via AJAX, interface responsiva e design moderno.
+
 📋 Sobre o Projeto
+
 Este projeto foi desenvolvido como parte de um teste técnico para vaga de estágio em desenvolvimento Full Stack. O sistema permite o cadastro, listagem e filtragem de produtos com uma interface moderna e responsiva.
+
 ✨ Funcionalidades Principais
 
 📦 Listagem de Produtos: Visualização em cards responsivos
+
 🔍 Filtros Dinâmicos: Busca por nome e categoria via AJAX
+
 ➕ Cadastro de Produtos: Modal para adicionar novos produtos
+
 📱 Interface Responsiva: Layout adaptativo para desktop e mobile
+
 ⚡ Carregamento Assíncrono: Sem recarregamento da página
+
 🎨 Design Moderno: Interface limpa com Bootstrap 5
 
 🚀 Tecnologias Utilizadas
